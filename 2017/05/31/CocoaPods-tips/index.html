@@ -1,100 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>CocoaPods | Blog</title>
+<html lang=zh-Hans>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tips cocoapod其实并不一定要把资源放到Assets文件夹下，可以是任意的文件夹，如想将xib文件存放在与源文件同一目录下（在Classes文件夹中）。s.source_file写法为s.source_files = &amp;#39;XXX/Classes/**/*{.h,.m}&amp;#39;， s.resource_bundles写法为s.resource_bundles= &amp;#39;XXX/*">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CocoaPods">
-<meta property="og:url" content="http://vkerui.github.io/2017/05/31/CocoaPods-tips/index.html">
-<meta property="og:site_name" content="Blog">
-<meta property="og:description" content="tips cocoapod其实并不一定要把资源放到Assets文件夹下，可以是任意的文件夹，如想将xib文件存放在与源文件同一目录下（在Classes文件夹中）。s.source_file写法为s.source_files = &amp;#39;XXX/Classes/**/*{.h,.m}&amp;#39;， s.resource_bundles写法为s.resource_bundles= &amp;#39;XXX/*">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-02T16:45:30.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CocoaPods">
-<meta name="twitter:description" content="tips cocoapod其实并不一定要把资源放到Assets文件夹下，可以是任意的文件夹，如想将xib文件存放在与源文件同一目录下（在Classes文件夹中）。s.source_file写法为s.source_files = &amp;#39;XXX/Classes/**/*{.h,.m}&amp;#39;， s.resource_bundles写法为s.resource_bundles= &amp;#39;XXX/*">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content>
+  <meta name="keywords" content>
   
-    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+    <link rel="icon" href>
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    
+  <title>CocoaPods | kerui</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-</html>
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Blog</a>
-      </h1>
+  <header>
+  <div class="header-container">
+    <a class="logo" href="/">
+      <span>kerui</span>
+    </a>
+    <ul class="right-header">
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">记录一些知识点</a>
-        </h2>
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://vkerui.github.io"></form>
-      </div>
-    </div>
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-CocoaPods-tips" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/31/CocoaPods-tips/" class="article-date">
-  <time datetime="2017-05-31T03:22:19.000Z" itemprop="datePublished">2017-05-31</time>
-</a>
-    
+
+  <main id="post">
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>CocoaPods</h1>
+          <div class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017/05/31</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/CocoaPods/">CocoaPods</a>
   </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      CocoaPods
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ol>
+
+            
+            
+          </div>
+          <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ol>
 <li><code>cocoapod</code>其实并不一定要把资源放到Assets文件夹下，可以是任意的文件夹，如想将xib文件存放在与源文件同一目录下（在Classes文件夹中）。<code>s.source_file</code>写法为<code>s.source_files = &#39;XXX/Classes/**/*{.h,.m}&#39;</code>， <code>s.resource_bundles</code>写法为<code>s.resource_bundles= &#39;XXX/**/*{.xib,.png}&#39;</code>。</li>
 <li><p>如果想用<code>Assets.xcassets</code>来管理仓库中的图片， 只需将<code>Assets.xcassets</code>放在<code>Assets</code>文件夹下，<code>s.resource_bundles</code>写法为<code>s.resource_bundles= &#39;XXX/Assets/*.{xib,png,xcassets}&#39;</code>。最终所有的<code>.xcassets</code>都会被编译进<code>Assets.car</code>中。<code>Assets.car</code>是经过<code>xcode</code>压缩生成的，因此有利用减少包的体积。在代码中获取图片的方式为<code>[UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@&quot;xxx.bundle&quot;]] compatibleWithTraitCollection:nil]</code>。</p>
 </li>
@@ -103,140 +79,96 @@
 </ol>
 <figure class="highlight plain"><figcaption><span>:ios, '8.0'  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 多个target共用一套pod的写法，项目中不能有名字为CommonPods，防止冲突；  </span><br><span class="line">abstract_target &apos;CommonPods&apos; do  </span><br><span class="line">  </span><br><span class="line"># 共用的pod第三方  </span><br><span class="line">pod &apos;AFNetworking&apos;  </span><br><span class="line">pod &apos;IQKeyboardManager&apos;  </span><br><span class="line">  </span><br><span class="line">    # 项目中的target各自的设置  </span><br><span class="line">    target ‘Target1’ do  </span><br><span class="line">    #可以在这里添加Target1独自引用的pod第三方  </span><br><span class="line">    end  </span><br><span class="line">    target &apos;Target2’ do  </span><br><span class="line">    #可以在这里添加Target2独自引用的pod第三方   </span><br><span class="line">    end  </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">platform :ios, &apos;8.0&apos;  </span><br><span class="line">  </span><br><span class="line"># 共用的pod第三方  </span><br><span class="line">pod &apos;AFNetworking&apos;  </span><br><span class="line">pod &apos;IQKeyboardManager&apos;  </span><br><span class="line">  </span><br><span class="line"># 项目中的target各自的设置  </span><br><span class="line">target ‘Target1’ do  </span><br><span class="line"> #可以在这里添加Target1独自引用的pod第三方  </span><br><span class="line">end  </span><br><span class="line">  </span><br><span class="line">target &apos;Target2’ do  </span><br><span class="line"> #可以在这里添加Target2独自引用的pod第三方   </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vkerui.github.io/2017/05/31/CocoaPods-tips/" data-id="cjudqrgf60000qcvoq463yuqb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
+        </section>
+    </article>
     
-<nav id="article-nav">
-  
-    <a href="/2017/05/31/PlistBuddy使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
         
-          PlistBuddy使用
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OC/">OC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具使用/">工具使用</a></li></ul>
-    </div>
   </div>
-
-
-  
+  <aside>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PlistBuddy/">PlistBuddy</a></li></ul>
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tips"><span class="toc-number">1.</span> <span class="toc-text">tips</span></a></li></ol>
+        </div>
     </div>
-  </div>
-
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PlistBuddy/" style="font-size: 10px;">PlistBuddy</a>
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2019 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/04/12/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/15/OC集合的判等规则/">OC对象的判等</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/13/PDF/">PDF</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/31/PlistBuddy使用/">PlistBuddy使用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/31/CocoaPods-tips/">CocoaPods</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 kerui<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
 </html>

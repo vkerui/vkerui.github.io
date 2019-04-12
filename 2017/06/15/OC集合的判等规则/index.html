@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>OC对象的判等 | kerui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="判等的方式OC对象的判等的主要方式有“==”和“isEqual”.对于基本类型，“==”比较的是值，对象类型则比较的是对象的地址. 而“==”和“isEqual”的主要区别也在于比较的是对象的地址还是对象的比较. 拿系统的UIColor举例： 12UIColor *color1 = [UIColor colorWithRed:0.5 green:0.5 blue 0.5 alpha:1.0];UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OC对象的判等">
+<meta property="og:url" content="http://yoursite.com/2017/06/15/OC集合的判等规则/index.html">
+<meta property="og:site_name" content="kerui&#39;s blog">
+<meta property="og:description" content="判等的方式OC对象的判等的主要方式有“==”和“isEqual”.对于基本类型，“==”比较的是值，对象类型则比较的是对象的地址. 而“==”和“isEqual”的主要区别也在于比较的是对象的地址还是对象的比较. 拿系统的UIColor举例： 12UIColor *color1 = [UIColor colorWithRed:0.5 green:0.5 blue 0.5 alpha:1.0];UI">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-15T14:54:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OC对象的判等">
+<meta name="twitter:description" content="判等的方式OC对象的判等的主要方式有“==”和“isEqual”.对于基本类型，“==”比较的是值，对象类型则比较的是对象的地址. 而“==”和“isEqual”的主要区别也在于比较的是对象的地址还是对象的比较. 拿系统的UIColor举例： 12UIColor *color1 = [UIColor colorWithRed:0.5 green:0.5 blue 0.5 alpha:1.0];UI">
+  
+    <link rel="alternate" href="/atom.xml" title="kerui&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">kerui&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OC集合的判等规则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/15/OC集合的判等规则/" class="article-date">
+  <time datetime="2017-06-15T13:56:50.000Z" itemprop="datePublished">2017-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OC/">OC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OC对象的判等
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="判等的方式"><a href="#判等的方式" class="headerlink" title="判等的方式"></a>判等的方式</h3><p>OC对象的判等的主要方式有“==”和“isEqual”.对于基本类型，“==”比较的是值，对象类型则比较的是对象的地址.</p>
+<p>而“==”和“isEqual”的主要区别也在于比较的是对象的地址还是对象的比较.</p>
+<p>拿系统的UIColor举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIColor *color1 = [UIColor colorWithRed:0.5 green:0.5 blue 0.5 alpha:1.0];</span><br><span class="line">UIColor *color1 = [UIColor colorWithRed:0.5 green:0.5 blue 0.5 alpha:1.0];</span><br></pre></td></tr></table></figure>
+<p>color1 == color2j结果为NO<br>[color1 isEqual:color2]结果为YES</p>
+<h3 id="重写对象的判等"><a href="#重写对象的判等" class="headerlink" title="重写对象的判等"></a>重写对象的判等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@interface Student : NSObject</span><br><span class="line">@property (nonatomic, strong) NSString *name;</span><br><span class="line">@property (nonatomic, strong) NSNumber *studentId;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (BOOL)isEqual:(id)object &#123;</span><br><span class="line">    if (self == object) &#123;</span><br><span class="line">        return YES;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (![object isKindOfClass:[Student class]]) &#123;</span><br><span class="line">        return NO;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Student *student = (Student *)object;</span><br><span class="line">    if ([self.name isEqualToString:student.name] &amp;&amp; [self.studentId isEqualToNumber:student.studentId]) &#123;</span><br><span class="line">        return YES;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return NO;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hash判等"><a href="#hash判等" class="headerlink" title="hash判等"></a>hash判等</h3><p>通常在数组中查找成员的方法是遍历，将目标值与数组中每个值比较，找出相等的, 查找的时间复杂度是O(n).<br>Hash Table的出现则提高了查找的速度，每个加入Hash Table的值都分配一个hash值，用来标识改成员在集合中的位置. 查找的过程变成直接通过hash值找到目标位置，时间复杂度是O(1).当然如果目标位置有多个Hash值相同的，则仍需一次数组的方式查找.</p>
+<p>hash的调用时机为对象被添加到NSSet和设置为NSDictionary的key时.<br>NSSet添加成员和NSDictionary查找key都是利用hash来提高查找效率.</p>
+<h3 id="hash判等和isEuqal的关系"><a href="#hash判等和isEuqal的关系" class="headerlink" title="hash判等和isEuqal的关系"></a>hash判等和isEuqal的关系</h3><ul>
+<li>当把一个实例添加到NSMutableSet/NSSet中的时候一定会调用- (NSUInteger)hash。</li>
+<li>当把一个实例A添加到NSMutableSet/NSSet中的时候，如果NSMutableSet/NSSet中存在&gt;=1个元素，那么A调用- (NSUInteger)hash方法后，会根据其返回值，判断是否需要继续调用- (BOOL)isEqual:.</li>
+<li>当把一个实例A添加到NSMutableSet/NSSet中的时候,如果集合中存在某个成员B的- (NSUInteger)hash返回值和A的- (NSUInteger)hash返回值相等,则A会继续调用- (BOOL)isEqual:，以B为参数。否则不等, 继续下一个元素判断。</li>
+</ul>
+<p>详细判断规则如下：</p>
+<ol>
+<li>集成成员的某个元素B的- (NSUInteger)hash返回值是否和A的- (NSUInteger)hash返回值相等, 如果不相等则进入2；否则进入3.</li>
+<li>NSMutableSet/NSSet是否存在下一个没有比较过得元素，如果有继续1；否则A会被添加到NSMutableSet/NSSet集合中，执行结束.</li>
+<li>调用A的- (BOOL)isEqual: 以B为参数，如果返回结果为NO则执行2；如果返回结果为Yes则NSMutableSet/NSSet中存在和A相同元素，A不会被添加到集合中，执行结束.</li>
+</ol>
+<h3 id="重写hash方法"><a href="#重写hash方法" class="headerlink" title="重写hash方法"></a>重写hash方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (NSUInteger)hash &#123;</span><br><span class="line">	return [super hash];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[super hash]返回的是对象的内存地址.<br>在集合中如果如果不重写hash方法可能导致isEqual相等的对象同时存在于集合中.<br>因此正确的重写hash方法如下(以Student为例)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (NSUInteger)hash &#123;</span><br><span class="line">	//对关键属性的hash值进行位或运算</span><br><span class="line">	return [self.name hsah] ^ [self.studentId hash];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/15/OC集合的判等规则/" data-id="cjudoot730001abvoy61flylg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/12/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/PDF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PDF</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OC/">OC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具使用/">工具使用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PlistBuddy/">PlistBuddy</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/PlistBuddy/" style="font-size: 10px;">PlistBuddy</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/OC集合的判等规则/">OC对象的判等</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/PDF/">PDF</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/31/PlistBuddy使用/">PlistBuddy使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/31/CocoaPods-tips/">CocoaPods</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 kerui<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
